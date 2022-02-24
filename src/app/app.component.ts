@@ -6,16 +6,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'spinner';
-  constructor(private spinner: NgxSpinnerService) { }
+export class AppComponent {
 
-  ngOnInit(): void {
+  typeSelected: string;
 
-    this.spinner.show();
+  constructor(private spinnerService: NgxSpinnerService) {
+    this.typeSelected = 'ball-fussion';
+  }
+
+  public showSpinner():void {
+    this.spinnerService.show();
 
     setTimeout(() => {
-      this.spinner.hide();
+      this.spinnerService.hide();
     }, 5000);
 
   }
